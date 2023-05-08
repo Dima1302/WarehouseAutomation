@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.skypro.myproject.WarehouseAutomation.exceptions.SocksNotFoundException;
 import ru.skypro.myproject.WarehouseAutomation.models.Socks;
 import ru.skypro.myproject.WarehouseAutomation.repositories.SocksRepository;
-import ru.skypro.myproject.WarehouseAutomation.repositories.WarehouseRepository;
+
 
 @Service
 public class SocksService {

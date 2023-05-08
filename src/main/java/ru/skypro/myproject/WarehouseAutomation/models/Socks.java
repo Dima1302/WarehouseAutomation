@@ -18,13 +18,7 @@ public class Socks {
     @Column(name = "quantity")
     private int quantity;
 
-    public Warehouse getWarehouse() {
-        return warehouse;
-    }
 
-    public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
-    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "warehouse_id", referencedColumnName = "id")

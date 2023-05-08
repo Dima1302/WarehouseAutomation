@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.skypro.myproject.WarehouseAutomation.models.Warehouse;
 import ru.skypro.myproject.WarehouseAutomation.repositories.WarehouseRepository;
 
-import java.util.HashMap;
+
 import java.util.Map;
 
 @Service
