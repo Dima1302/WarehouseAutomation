@@ -2,8 +2,10 @@ package ru.skypro.myproject.WarehouseAutomation.models;
 
 import jakarta.persistence.*;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -13,6 +15,17 @@ public class Warehouse {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public List<Socks> getSocksList() {
+        return socksList;
+    }
+
+    public void setSocksList(List<Socks> socksList) {
+        this.socksList = socksList;
+    }
+
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Socks> socksList = new ArrayList<>();
 
     public Long getId() {
         return id;
