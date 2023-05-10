@@ -21,11 +21,12 @@ public class SocksController {
         this.socksRepository = socksRepository;
     }
 
-    @PostMapping("/socks/income")
+    @PostMapping("/income")
     public ResponseEntity<String> addSocks(@RequestBody Socks socks) {
         socksService.addSocks(socks);
         return ResponseEntity.ok().build();
     }
+
 
 
     @DeleteMapping("/{id}")

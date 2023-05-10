@@ -9,6 +9,8 @@ import ru.skypro.myproject.WarehouseAutomation.models.Warehouse;
 
 import ru.skypro.myproject.WarehouseAutomation.services.WarehouseService;
 
+import java.util.UUID;
+
 @Controller
 @RequestMapping("/warehouse")
 public class WarehouseController {
@@ -44,10 +46,18 @@ public class WarehouseController {
         int count = warehouseService.getSocksCountByCottonPart(cottonPart);
         return ResponseEntity.ok(count);
     }
+
+
     @PostMapping("/warehouses")
     public ResponseEntity<Warehouse> createWarehouse(@RequestBody Warehouse warehouse) {
         Warehouse createdWarehouse = warehouseService.createWarehouse(warehouse);
-        return new ResponseEntity<>(createdWarehouse, HttpStatus.CREATED);
+        UUID id = UUID.randomUUID(); // Генерация уникального идентификатора
+        createdWarehouse.setId(id.getMostSignificantBits()); // Присваивание числового значения UUID
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdWarehouse);
     }
+
+
+
+
 
 }
