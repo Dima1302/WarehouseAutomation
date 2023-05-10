@@ -20,6 +20,8 @@ public class Warehouse {
         return socksList;
     }
 
+
+
     public void setSocksList(List<Socks> socksList) {
         this.socksList = socksList;
     }

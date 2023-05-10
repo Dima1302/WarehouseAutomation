@@ -45,11 +45,16 @@ public class WarehouseService {
         return warehouse.getSocksByCottonPart().getOrDefault(String.valueOf(cottonPart), 0);
     }
 
-    private void updateSocksByColor(String color, int quantity, Map<String, Integer> socksByColor) {
+    public void updateSocksByColor(String color, int quantity, Map<String, Integer> socksByColor) {
         socksByColor.merge(color, quantity, Integer::sum);
     }
 
-    private void updateSocksByCottonPart(int cottonPart, int quantity, Map<String, Integer> socksByCottonPart) {
+    public void updateSocksByCottonPart(int cottonPart, int quantity, Map<String, Integer> socksByCottonPart) {
         socksByCottonPart.merge(String.valueOf(cottonPart), quantity, Integer::sum);
+    }
+
+    public Warehouse createWarehouse(Warehouse warehouse){
+        warehouseRepository.save(warehouse);
+        return warehouse;
     }
 }

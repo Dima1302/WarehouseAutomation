@@ -1,8 +1,12 @@
 package ru.skypro.myproject.WarehouseAutomation.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import ru.skypro.myproject.WarehouseAutomation.models.Warehouse;
+
+
 import ru.skypro.myproject.WarehouseAutomation.services.WarehouseService;
 
 @Controller
@@ -40,4 +44,10 @@ public class WarehouseController {
         int count = warehouseService.getSocksCountByCottonPart(cottonPart);
         return ResponseEntity.ok(count);
     }
+    @PostMapping("/warehouses")
+    public ResponseEntity<Warehouse> createWarehouse(@RequestBody Warehouse warehouse) {
+        Warehouse createdWarehouse = warehouseService.createWarehouse(warehouse);
+        return new ResponseEntity<>(createdWarehouse, HttpStatus.CREATED);
+    }
+
 }
